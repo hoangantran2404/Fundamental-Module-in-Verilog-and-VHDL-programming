@@ -10,14 +10,16 @@
 // Based on the truth table, we can conclude when enable(E)=0, Q(n+1)=Qn. And when enable(E)=1, Q(n+1)= input(D).
 // -> Boolean function Q= (~E&Q)|(E&D);
 
-module D_Latch(input D,E,
-               output Q,Qbar);
-wire c1, c2;
-  and(c1,D,E);
-  not(Ebar,E);
-  and(c2,Ebar,Q);
-  nor(Qbar,c1,c2);
-  not(Q,Qbar);
+module D_Latch(D,E,clr,Q,Qbar);
+input D,E,clr;
+output Q,Qbar;
+  always @(*)begin
+    if(!clr)
+      Q=0;
+    else 
+      if (E)
+        Q=D;
+    Q=~Qbar;
+  end
   // Or we can write ONLY this statement: assign Q=(~E&Q)|(E&D);
-  
 endmodule 
