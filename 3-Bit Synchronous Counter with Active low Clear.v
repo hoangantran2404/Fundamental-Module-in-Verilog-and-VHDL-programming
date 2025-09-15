@@ -59,16 +59,16 @@ module D_FF_master_slave(D, clk, clr, Q, Qbar);
     D_latch master(.D(D), .E(clkb), .clr(clr), .Q(Qm), .Qbar(Qmb));
     D_latch slave (.D(Qm), .E(clk),  .clr(clr), .Q(Q),  .Qbar(Qbar));
     endmodule
-module D_latch(D, E, clr, Q, Qbar);
+module D_latch(D, E, clr_n, Q, Qbar);
 
     // This modified exactly the behavior of D latch in the note.
     // If clear= 0-> reset Q=0
     // If clear =1 and Enable =1 => Q=D
-    input D, E, clr;
+    input D, E, clr_n;
     output reg Q, Qbar;
 
     always @(*) begin
-        if (!clr)// clear =0 -> reset
+        if (!clr_n)// clear =0 -> reset
             Q = 0;
         else 
             if (E)// clear =1 and Enable =1 
