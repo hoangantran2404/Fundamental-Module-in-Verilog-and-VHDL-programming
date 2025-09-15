@@ -10,7 +10,7 @@
 // Based on the truth table, we can conclude when enable(E)=0, Q(n+1)=Qn. And when enable(E)=1, Q(n+1)= input(D).
 // -> Boolean function Q= (~E&Q)|(E&D);
 
-module D_Latch(D,E,clr,Q,Qbar);
+module D_Latch_lowacreset(D,E,clr,Q,Qbar);
 input D,E,clr;
 output Q,Qbar;
   always @(*)begin
