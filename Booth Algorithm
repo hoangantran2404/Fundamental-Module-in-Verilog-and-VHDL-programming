@@ -1,3 +1,0 @@
-module booth_algorithm(x,y,z);
-parameter N=3;
-input 
