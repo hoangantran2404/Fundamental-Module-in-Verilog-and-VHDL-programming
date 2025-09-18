@@ -21,7 +21,7 @@ task fracbinary_to_real(bi_value,re_value);
     result=0.0;// should declare it first and remember don't put it in the for loop 
     for (i=0,i<=N,i=i+1) begin
       if(bi_value[i])
-        result = result +1/(2**(i+1));
+        result = result +1.0/(2.0**(i+1));
     end
     re_value = result;
   end
